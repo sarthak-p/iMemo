@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NotesApplication</string>
+    <string name="the_note_taker">The Note Taker</string>
+    <string name="enter">Enter</string>
+</resources>
