@@ -2,7 +2,10 @@ package com.example.notesapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -11,7 +14,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     //creating an arrayList that links to listView
-    ArrayList<String> setOfNotes = new ArrayList<>();
+    static ArrayList<String> setOfNotes = new ArrayList<>();
 
 
     @Override
@@ -24,14 +27,22 @@ public class MainActivity extends AppCompatActivity {
 
         //first note
         setOfNotes.add("firstNote");
+        setOfNotes.add("SecondNote");
 
-        //arrayAdapter holds on to the set of notes, without this the list_view is useless
+        //arrayAdapter holds on to the set of notes, calls on toString() to display each note
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, setOfNotes);
-
+        //set the adapter to our list view
         list.setAdapter(adapter);
 
-
-
+        //when each note is clicked, it takes it to a new activity where the user can edit it
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent toEditor = new Intent(getApplicationContext(), Main2Activity.class);
+                toEditor.putExtra("noteId", position);
+                startActivity(toEditor);
+            }
+        });
     }
 }
