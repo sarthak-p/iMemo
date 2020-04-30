@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +18,27 @@ public class MainActivity extends AppCompatActivity {
 
     //creating an arrayList that links to listView
     static ArrayList<String> setOfNotes = new ArrayList<>();
+    static ArrayAdapter adapter;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.add_notes, menu);
+
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem i) {
+        super.onOptionsItemSelected(i);
+        if (i.getItemId() == R.id.new_note) {
+            Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+            startActivity(intent);
+            return true;
+        }
+        return false;
+    }
 
 
     @Override
@@ -30,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setOfNotes.add("SecondNote");
 
         //arrayAdapter holds on to the set of notes, calls on toString() to display each note
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, setOfNotes);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, setOfNotes);
         //set the adapter to our list view
         list.setAdapter(adapter);
 
@@ -44,5 +67,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(toEditor);
             }
         });
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback()) {
+            @Override
+            public boolean onMove(RecyclerView.ViewHolder vi)
+        }
     }
 }

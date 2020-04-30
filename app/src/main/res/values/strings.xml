@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">NotesApplication</string>
-    <string name="the_note_taker">The Note Taker</string>
+    <string name="app_name">iMemo</string>
+    <string name="the_note_taker">Welcome Back</string>
     <string name="enter">Enter</string>
+    <string name="save">Save</string>
+    <string name="start_writing">Start Writing</string>
+    <string name="new_note">New Note</string>
 </resources>
