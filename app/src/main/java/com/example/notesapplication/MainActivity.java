@@ -67,9 +67,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(toEditor);
             }
         });
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback()) {
-            @Override
-            public boolean onMove(RecyclerView.ViewHolder vi)
-        }
     }
 }

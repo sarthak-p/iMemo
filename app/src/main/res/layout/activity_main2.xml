@@ -11,15 +11,13 @@
         android:id="@+id/editText3"
         android:layout_width="0dp"
         android:layout_height="744dp"
-        android:autofillHints=""
         android:ems="10"
-        android:gravity="start|top|left"
+        android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBaseline_toBaselineOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
