@@ -36,6 +36,7 @@ public class Main2Activity extends AppCompatActivity {
             MainActivity.adapter.notifyDataSetChanged();
         }
 
+        //
         text.addTextChangedListener(new TextWatcher() {
 
             @Override

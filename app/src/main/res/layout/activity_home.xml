@@ -12,14 +12,13 @@
     <Button
         android:id="@+id/enterButton"
         android:layout_width="207dp"
-        android:layout_height="49dp"
+        android:layout_height="0dp"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
+        android:layout_marginBottom="314dp"
         android:text="START DOING"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.427" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

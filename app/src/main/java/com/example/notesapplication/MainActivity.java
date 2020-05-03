@@ -1,7 +1,9 @@
 package com.example.notesapplication;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //we can create a new note using the add note menu feature
     @Override
     public boolean onOptionsItemSelected(MenuItem i) {
         super.onOptionsItemSelected(i);
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-
+    //this is where we add the note to the arrayList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
         //links to the list_view
         ListView list = (ListView) findViewById(R.id.list_view);
-
-        //first note
-        setOfNotes.add("firstNote");
-        setOfNotes.add("SecondNote");
 
         //arrayAdapter holds on to the set of notes, calls on toString() to display each note
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, setOfNotes);
