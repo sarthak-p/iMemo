@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         //arrayAdapter holds on to the set of notes, calls on toString() to display each note
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, setOfNotes);
+
         //set the adapter to our list view
         list.setAdapter(adapter);
 
@@ -64,6 +65,28 @@ public class MainActivity extends AppCompatActivity {
                 Intent toEditor = new Intent(getApplicationContext(), Main2Activity.class);
                 toEditor.putExtra("noteId", position);
                 startActivity(toEditor);
+            }
+        });
+
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                final int i = position;
+
+                new AlertDialog.Builder(MainActivity.this)
+                        .setIcon(android.R.drawable.ic_delete)
+                        .setTitle("Deleting Item")
+                        .setMessage("Are you sure?")
+                        .setPositiveButton("JUST DO IT", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                setOfNotes.remove(i);
+                                adapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("WHAT! NO", null)
+                        .show();
+                return true;
             }
         });
     }
