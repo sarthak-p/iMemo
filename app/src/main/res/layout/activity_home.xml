@@ -8,17 +8,14 @@
     android:background="@drawable/gradient_background"
     tools:context=".Home">
 
-
     <Button
         android:id="@+id/enterButton"
-        android:layout_width="207dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginBottom="314dp"
-        android:text="START DOING"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="180dp"
+        android:text="@string/start_writing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

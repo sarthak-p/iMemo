@@ -7,6 +7,8 @@
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
+
+
     <ListView
         android:id="@+id/list_view"
         android:layout_width="0dp"
