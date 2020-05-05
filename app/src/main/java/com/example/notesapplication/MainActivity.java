@@ -1,12 +1,14 @@
 package com.example.notesapplication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -56,10 +58,6 @@ public class MainActivity extends AppCompatActivity {
         //links to the list_view
         ListView list = (ListView) findViewById(R.id.list_view);
 
-        //first note
-        setOfNotes.add("FirstNote");
-        setOfNotes.add("SecondNote");
-
         //arrayAdapter holds on to the set of notes, calls on toString() to display each note
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, setOfNotes);
         //set the adapter to our list view
@@ -69,11 +67,35 @@ public class MainActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent toEditor = new Intent(getApplicationContext(), Main2Activity.class);
-                toEditor.putExtra("noteId", position);
-                startActivity(toEditor);
+                Intent main2Act = new Intent(getApplicationContext(), Main2Activity.class);
+                main2Act.putExtra("noteId", position);
+                startActivity(main2Act);
             }
         });
+
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                final int i = position;
+                new AlertDialog.Builder(MainActivity.this)
+                        .setIcon(android.R.drawable.ic_delete)
+                        .setTitle("This cannot be reverted")
+                        .setMessage("Are you sure?")
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                setOfNotes.remove(i);
+                                adapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+                return true;
+            }
+        });
+
+
+
         /* new ItemTouchHelper(new ItemTouchHelper.SimpleCallback()) {
             @Override
             public boolean onMove(RecyclerView.ViewHolder vi);
