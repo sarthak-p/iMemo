@@ -3,6 +3,8 @@ package com.example.notesapplication;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 
+import android.content.BroadcastReceiver;
+import android.content.BroadcastReceiver;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -59,7 +61,7 @@ public class NotificationButton extends AppCompatActivity {
         int randomValue = r.nextInt(inputArray.length - 1);
         return inputArray[randomValue];
     }
-    private void addNotifications() {
+    public void addNotifications() {
 
         // Notification builder
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
