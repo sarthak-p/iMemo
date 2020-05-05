@@ -1,7 +1,12 @@
 package com.example.notesapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,9 +15,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         ListView list = (ListView) findViewById(R.id.list_view);
 
         //first note
-        setOfNotes.add("firstNote");
+        setOfNotes.add("FirstNote");
         setOfNotes.add("SecondNote");
 
         //arrayAdapter holds on to the set of notes, calls on toString() to display each note
@@ -67,9 +74,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(toEditor);
             }
         });
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback()) {
+        /* new ItemTouchHelper(new ItemTouchHelper.SimpleCallback()) {
             @Override
-            public boolean onMove(RecyclerView.ViewHolder vi)
-        }
+            public boolean onMove(RecyclerView.ViewHolder vi);
+        } */
+
     }
 }
