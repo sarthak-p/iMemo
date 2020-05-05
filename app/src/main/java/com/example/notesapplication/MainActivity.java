@@ -79,16 +79,16 @@ public class MainActivity extends AppCompatActivity {
 
                 new AlertDialog.Builder(MainActivity.this)
                         .setIcon(android.R.drawable.ic_delete)
-                        .setTitle("Deleting Item")
-                        .setMessage("Are you sure?")
-                        .setPositiveButton("JUST DO IT", new DialogInterface.OnClickListener() {
+                        .setTitle("Deleting Item...")
+                        .setMessage("Move to Trash?")
+                        .setPositiveButton("YEAH", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 setOfNotes.remove(i);
                                 adapter.notifyDataSetChanged();
                             }
                         })
-                        .setNegativeButton("WHAT! NO", null)
+                        .setNegativeButton("NOPE", null)
                         .show();
                 return true;
             }
