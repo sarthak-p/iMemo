@@ -2,11 +2,21 @@ package com.example.notesapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+
+import com.google.gson.Gson;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 import static com.example.notesapplication.R.layout.activity_main2;
 
@@ -46,6 +56,7 @@ public class Main2Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
                 MainActivity.setOfNotes.set(noteId, String.valueOf(s));
                 MainActivity.adapter.notifyDataSetChanged();
 

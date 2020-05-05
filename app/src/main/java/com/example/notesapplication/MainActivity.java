@@ -3,8 +3,10 @@ package com.example.notesapplication;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,10 +17,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class MainActivity extends AppCompatActivity {
 
-    //creating an arrayList that links to listView
+    //creating an arrayList holds the list of Strings
     static ArrayList<String> setOfNotes = new ArrayList<>();
     static ArrayAdapter adapter;
 
@@ -67,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(toEditor);
             }
         });
+
 
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
